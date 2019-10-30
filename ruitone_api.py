@@ -89,6 +89,7 @@ charge_args = safe_load(content)
 log = get_log()
 
 if __name__ == '__main__':
+    log.info("开始执行")
     thread_num = charge_args.get('thread_num')
     thread_list = []
     phone_list = get_phone_list()
@@ -100,3 +101,4 @@ if __name__ == '__main__':
         t.start()
     for t in thread_list:
         t.join()
+    log.info("执行完成")
