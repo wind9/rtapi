@@ -14,7 +14,7 @@ import json
 def get_log():
     log = logging.getLogger("充值api")
     log.setLevel(logging.DEBUG)
-    file_handler = logging.FileHandler('ruitone.log', encoding='utf-8')
+    file_handler = logging.FileHandler('volume/ruitone.log', encoding='utf-8')
     formatter = logging.Formatter('%(asctime)s|%(name)s|%(levelname)s|%(message)s')
     file_handler.setFormatter(formatter)
     #file_handler.setLevel(logging.DEBUG)
@@ -36,7 +36,7 @@ def md5(text):
 
 
 def get_phone_list():
-    phone_file = 'phone.txt'
+    phone_file = 'volume/phone.txt'
     phone_list = []
     with open(phone_file, 'r') as f:
         for line in f.readlines():
@@ -82,7 +82,7 @@ def run(thread_id, thread_num, phone_list):
         i = i + 1
 
 
-config_file = 'config.yaml'
+config_file = 'volume/config.yaml'
 with open(config_file, 'r') as f:
     content = f.read()
 charge_args = safe_load(content)
